@@ -1,0 +1,15 @@
+Bài 4 : Xử lý lỗi đường dẫn khi triển khai dự án
+### Phần 1: So sánh Đường dẫn tuyệt đối và Đường dẫn tương đối
+**1. Tiêu chí: Độ dài**
+* **Đường dẫn tuyệt đối (Absolute Path):** Dài, do phải ghi đầy đủ toàn bộ tuyến đường từ ổ đĩa gốc (ví dụ: `D:\FarmProject\data\logs.csv`).
+* **Đường dẫn tương đối (Relative Path):** Ngắn gọn, chỉ tính từ vị trí thư mục hiện tại của dự án (ví dụ: `data/logs.csv`).
+
+
+**2. Tiêu chí: Tính di động khi gửi project cho người khác**
+* **Đường dẫn tuyệt đối (Absolute Path):** **Thấp.** Rất dễ gặp lỗi không tìm thấy tệp (FileNotFoundError) nếu máy người nhận không có sẵn cấu trúc thư mục hay ổ đĩa giống hệt (`D:\FarmProject\...`).
+* **Đường dẫn tương đối (Relative Path):** **Cao.** Mã nguồn hoạt động bình thường trên mọi máy tính khác nhau, miễn là giữ nguyên cấu trúc thư mục bên trong thư mục dự án.
+
+Phần 2: Giải pháp tối ưu & Ý nghĩa ký hiệu ..
+Lựa chọn giải pháp: Đường dẫn tương đối (Relative Path). Solution này giúp tối ưu tính di động (Portability) của dự án khi chia sẻ cho người khác.   
+
+Ý nghĩa của ký hiệu ..: Ký hiệu .. đại diện cho thư mục cha (thư mục nằm ngay ở cấp trên thư mục hiện tại). Nó cho phép chuyển vị trí làm việc lùi lại một cấp thư mục để truy cập tới các tệp hoặc thư mục khác trong cùng dự án.
